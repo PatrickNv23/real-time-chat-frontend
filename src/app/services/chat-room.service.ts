@@ -1,13 +1,15 @@
 import { Injectable, inject } from '@angular/core';
+/*
 import { SignalrClient, SignalrConnection } from 'ngx-signalr-websocket';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs';*/
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatRoomService {
 
+  /*
   httpClient = inject(HttpClient);
   client!: SignalrClient;
   connection!: SignalrConnection;
@@ -23,5 +25,5 @@ export class ChatRoomService {
 
   getMessage(): Observable<[string, string]> {
     return this.connection.on<[string, string]>('ReceivedMessage')
-  }
+  }*/
 }
