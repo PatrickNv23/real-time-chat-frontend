@@ -1,0 +1,17 @@
+<form [formGroup]="chatForm" (ngSubmit)="sendMessage(this.chatForm.value.user, this.chatForm.value.message)">
+  <input type="text" placeholder="Add your user" formControlName="user">
+  <input type="text" placeholder="Add your message" formControlName="message">
+  <input type="submit" value="Send message">
+</form>
+<aside>
+  <h2>CHAT ROOM</h2>
+  <div *ngIf="messages.length > 0 else emptyChatRoom">
+    <div *ngFor="let message of messages">
+      <p><strong>{{message.user}}: </strong> {{message.description}}</p>
+    </div>
+  </div>
+</aside>
+
+<ng-template #emptyChatRoom>
+  <p>No messages</p>
+</ng-template>
