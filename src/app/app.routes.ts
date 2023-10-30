@@ -15,6 +15,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/sign-up/sign-up.component').then(component => component.SignUpComponent)
   },
   {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.component').then(component => component.HomeComponent)
+  },
+  {
     path: '**',
     loadComponent: () => import('./components/not-found/not-found.component').then(component => component.NotFoundComponent)
   }
