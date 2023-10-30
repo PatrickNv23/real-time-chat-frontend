@@ -1,33 +1,80 @@
 <!-- content section -->
-<section class="flex flex-col items-center overflow-auto w-full h-full">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, explicabo fuga. Nulla alias, quis quibusdam
-  accusantium officia ab voluptatibus totam, pariatur quisquam perferendis rerum voluptatum. Quia sequi molestiae
-  temporibus atque?
-  Rem assumenda modi ullam aliquam velit ipsam? Fuga atque officia eligendi dignissimos sint ullam sunt, tenetur sit
-  tempora? Optio, similique pariatur a quasi assumenda ratione cupiditate quaerat labore ipsum incidunt.
-  Explicabo vero nihil amet quo distinctio enim, minima voluptatum at officia voluptates modi inventore obcaecati
-  doloremque ipsum voluptatem nam ad ab aliquid atque reiciendis repudiandae sequi quia nulla maiores? Nihil!
-  Perferendis quo quidem assumenda aliquid inventore, numquam aliquam reiciendis porro. Culpa, mollitia autem voluptas
-  ipsum repudiandae sapiente. Illo odit, eaque perspiciatis, at modi, obcaecati reprehenderit quasi explicabo dicta
-  nemo
-  minima?
-  Minima magnam ipsam quidem. Explicabo aperiam eligendi laborum cupiditate quae iusto officiis itaque assumenda
-  possimus deserunt ab nihil quaerat nemo odit mollitia vel at, et exercitationem incidunt necessitatibus beatae
-  nesciunt!
-  Facere optio esse sequi, cumque magni eligendi. Commodi maxime ut alias error itaque possimus distinctio eum
-  corporis!
-  Id quas consequuntur nemo quis praesentium tenetur sapiente facere molestiae, animi dolor quae.
-  Earum suscipit assumenda sunt cum in sapiente odio nesciunt qui voluptas vel nemo libero, velit alias sint
-  reiciendis
-  corrupti accusantium non, quidem dolore repellat accusamus laborum? Magni optio facilis facere.
-  Obcaecati assumenda veritatis animi consequatur aliquam doloribus eum neque distinctio? Soluta sapiente temporibus
-  atque ipsum, inventore at similique consequuntur tempore corporis laudantium voluptas, suscipit nulla cum ex
-  assumenda
-  dolorem possimus.
-  Pariatur iure veritatis porro ipsam consequatur ad earum fugiat mollitia quo, magnam ipsa quod quidem nam quam
-  consequuntur, voluptate cum maiores saepe voluptas sequi! In natus placeat ipsam distinctio accusamus!
-  Id, dolor dignissimos a doloribus aspernatur magnam fugit blanditiis delectus, iure aliquam eaque quasi animi modi
-  eveniet optio dicta corrupti explicabo saepe dolorum suscipit aut soluta labore odit? Qui, iure.
+<section class="flex flex-col items-center w-full h-screen">
+  <!-- all messages -->
+  <div class="overflow-auto w-full h-full flex flex-col-reverse">
+    <div class="chat chat-end">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
+    </div>
+    <div class="chat chat-start">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble">It was said that you would, destroy the Sith, not
+        join
+        them.</div>
+    </div>
+    <div class="chat chat-end">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
+    </div>
+    <div class="chat chat-start">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble">It was said that you would, destroy the Sith, not join them.</div>
+    </div>
+    <div class="chat chat-end">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
+    </div>
+    <div class="chat chat-start">
+      <div class="chat-image avatar">
+        <div class="w-10 rounded-full">
+          <img
+            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        </div>
+      </div>
+      <div class="chat-bubble">It was said that you would, destroy the Sith, not join them.</div>
+    </div>
+  </div>
+
+  <!-- my message send -->
+  <div class="flex justify-around items-center w-full my-4">
+    <!-- <textarea placeholder="Bio" class="textarea textarea-bordered textarea-xs w-full max-w-xs"></textarea> -->
+    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+    <button class="btn btn-square my-2 ml-2">
+      <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+        <g fill="currentColor">
+          <path
+            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26l.001.002l4.995 3.178l1.59 2.498C8 14 8 13 8 12.5a4.5 4.5 0 0 1 5.026-4.47L15.964.686Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215l7.494-7.494l1.178-.471l-.47 1.178Z" />
+          <path
+            d="M16 12.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0Zm-5.5 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5Z" />
+        </g>
+      </svg>
+    </button>
+  </div>
 </section>
 
 <!-- <form [formGroup]="chatForm" (ngSubmit)="sendMessage(this.chatForm.value.user, this.chatForm.value.message)">
