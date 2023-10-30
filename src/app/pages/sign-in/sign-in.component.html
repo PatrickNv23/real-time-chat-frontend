@@ -3,22 +3,25 @@
     <div class="card-title justify-center text-primary">
       Sign in
     </div>
-    <div class="card-body">
+    <form [formGroup]="signInForm" class="card-body" (ngSubmit)="signIn()">
       <div class="form-control w-full max-w-xs">
         <label class="label">
           <span class="label-text">Email</span>
         </label>
-        <input type="text" placeholder="example@gmail.com" class="input input-bordered w-full max-w-xs" />
+        <input formControlName="email" type="text" placeholder="example@gmail.com"
+          class="input input-bordered w-full max-w-xs" />
       </div>
 
       <div class="form-control w-full max-w-xs">
         <label class="label">
           <span class="label-text">Password</span>
         </label>
-        <input type="password" placeholder="Enter password" class="input input-bordered w-full max-w-xs" />
+        <input formControlName="password" type="password" placeholder="Enter password"
+          class="input input-bordered w-full max-w-xs" />
       </div>
       <div class="card-actions justify-center mt-5">
-        <button class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign in</button>
+        <button type="submit" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign
+          in</button>
         <button class="btn btn-outline btn-secondary sm:btn-sm md:btn-md lg:btn-md btn-wide">
           <svg xmlns="http://www.w3.org/2000/svg" width="19.55" height="20" viewBox="0 0 256 262">
             <path fill="#4285F4"
@@ -42,7 +45,7 @@
       </div>
       <small class="pt-4">Don’t have an account yet? <a class="link link-primary" [routerLink]="['./sign-up']">Sign
           up</a></small>
-    </div>
+    </form>
 
   </div>
 </div>
