@@ -1,5 +1,5 @@
 <!-- chat section -->
-<section class="flex flex-col items-center h-full">
+<section class="flex flex-col items-center h-full" *ngIf="selectedSidebarItem === 'CHATS'">
   <div class="flex w-11/12 m-2 justify-center align-center">
     <div class="avatar online">
       <div class="w-12 rounded-full">
@@ -90,4 +90,43 @@
     </div>
   </div>
 
+</section>
+
+<!-- groups section -->
+<section class="flex flex-col items-center h-full" *ngIf="selectedSidebarItem === 'GROUPS'">
+  <div class="flex w-11/12 m-2 justify-center align-center">
+    <div class="avatar online">
+      <div class="w-12 rounded-full">
+        <img
+          src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+      </div>
+    </div>
+    <div class="flex flex-col mx-2 w-full h-full justify-center">
+      <div class="flex w-full justify-between">
+        <span class="font-bold">Grupo 1</span>
+        <span class="text-xs text-gray-500">11:34 AM</span>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">The last message</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex w-11/12 m-2 justify-center align-center">
+    <div class="avatar online">
+      <div class="w-12 rounded-full">
+        <img
+          src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+      </div>
+    </div>
+    <div class="flex flex-col mx-2 w-full h-full justify-center">
+      <div class="flex w-full justify-between">
+        <span class="font-bold">Grupo 1</span>
+        <span class="text-xs text-gray-500">11:34 AM</span>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">The last message</p>
+      </div>
+    </div>
+  </div>
 </section>

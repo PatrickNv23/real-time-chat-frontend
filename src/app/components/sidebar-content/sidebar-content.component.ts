@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar-content',
@@ -10,4 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class SidebarContentComponent {
 
+  selectedSidebarItem !: string;
+  sidebarService = inject(SidebarService)
+
+  constructor() {
+    this.sidebarService.getSelectedSidebarItem().subscribe({
+      next: (response: string) => {
+        this.selectedSidebarItem = response;
+      }
+    })
+  }
 }

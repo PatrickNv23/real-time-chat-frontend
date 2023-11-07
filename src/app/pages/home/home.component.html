@@ -9,3 +9,26 @@
     <app-chat-room />
   </article>
 </main>
+
+<!-- modal create Group -->
+<dialog id="createGroup" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="#e11d48"
+            d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12S6.47 2 12 2m3.59 5L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41L15.59 7Z" />
+        </svg>
+      </button>
+    </form>
+    <h3 class="font-bold text-lg">New group</h3>
+    <p class="py-4">Enter the group's name: </p>
+    <form method="dialog" class="flex flex-col items-center justify-center">
+      <input type="text" class="input input-bordered w-full my-5" />
+      <div class="modal-action">
+        <button type="submit" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Create
+          group</button>
+      </div>
+    </form>
+  </div>
+</dialog>
