@@ -1,29 +1,32 @@
-import { Injectable, inject } from '@angular/core';
-/*
-import { SignalrClient, SignalrConnection } from 'ngx-signalr-websocket';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';*/
+import { Injectable } from '@angular/core';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatRoomService {
 
-  /*
-  httpClient = inject(HttpClient);
-  client!: SignalrClient;
-  connection!: SignalrConnection;
-
+  private connection!: HubConnection;
   constructor() {
-    this.client = SignalrClient.create(this.httpClient);
-    this.client.connect("http://localhost:5178/chat").subscribe(connection => this.connection = connection)
+    this.connection = new HubConnectionBuilder().withUrl(`http://localhost:5178/chat`).build();
+
+    this.connection.on('ReceivedMessageToGroup', (message: string) => this.receivedMessageToGroup(message))
+
+
+    this.connection.start()
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
   }
 
-  sendMessage(user: string, message: string): Observable<any> {
-    return this.connection.invoke('SendMessage', user, message);
+  sendMessageToGroup(groupName: string, message: string) {
+    groupName && message && this.connection.invoke('SendMessageToGroup', groupName, message)
   }
 
-  getMessage(): Observable<[string, string]> {
-    return this.connection.on<[string, string]>('ReceivedMessage')
-  }*/
+
+  receivedMessageToGroup(message: string) {
+  }
+
+  joinGroup(groupName: string) {
+    groupName && this.connection.invoke('JoinGroup', groupName);
+  }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//import { ChatRoomService } from 'src/app/services/chat-room.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { API_BASE_URL } from 'src/app/constants/constants';
 
 @Component({
   selector: 'app-chat-room',
@@ -15,7 +15,7 @@ export class ChatRoomComponent implements OnInit {
 
   messages !: Array<{ user: string, description: string }>;
   private connection!: HubConnection;
-  //chatRommService: ChatRoomService = inject(ChatRoomService);
+
   chatForm!: FormGroup;
   formBuilder: FormBuilder = inject(FormBuilder);
 
@@ -27,32 +27,28 @@ export class ChatRoomComponent implements OnInit {
       message: new FormControl<string>('')
     })
 
-    this.connection = new HubConnectionBuilder().withUrl('http://localhost:5178/chat').build();
+    this.connection = new HubConnectionBuilder().withUrl(`${API_BASE_URL}/chat`).build();
 
-    this.connection.on('ReceivedMessage', (user: string, message: string) => this.receivedMessage(user, message))
+    this.connection.on('ReceivedMessageToGroup', (message: string) => this.receivedMessageToGroup(message))
   }
+
+  joinGroup(groupName: string) {
+    groupName && this.connection.invoke('JoinGroup', groupName);
+  }
+
   ngOnInit(): void {
     this.connection.start()
       .then(response => console.log(response))
       .catch(error => console.log(error))
   }
 
-
-  sendMessage(user: string, message: string) {
-
-    /*
-    this.chatRommService.sendMessage(user, message).subscribe(response => console.log(response));
-    this.chatRommService.getMessage().subscribe(([user, message]: [string, string]) => {
-      this.messages.push({ user, description: message });
-    });*/
-
-
-    user && message && this.connection.invoke('SendMessage', user, message)
-
+  sendMessageToGroup(message: string) {
+    message && this.connection.invoke('SendMessageToGroup', 'Turritos', message)
   }
 
-  private receivedMessage(user: string, message: string) {
-    this.messages.push({ user, description: message })
+
+  receivedMessageToGroup(message: string) {
+    this.messages.push({ user: 'User', description: message })
   }
 
 }

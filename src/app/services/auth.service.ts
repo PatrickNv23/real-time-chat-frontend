@@ -20,4 +20,8 @@ export class AuthService {
   signIn(signInRequest: SignInRequest): Observable<any> {
     return this.http.post(`${API_BASE_URL}/Auth/SignIn`, signInRequest);
   }
+
+  getCurrentSession(): Observable<any> {
+    return this.http.get(`${API_BASE_URL}/Auth/GetCurrentSession`);
+  }
 }

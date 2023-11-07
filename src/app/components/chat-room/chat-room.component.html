@@ -1,17 +1,20 @@
 <!-- content section -->
 <section class="flex flex-col items-center w-full h-screen">
   <!-- all messages -->
-  <div class="overflow-auto w-full h-full flex flex-col-reverse">
-    <div class="chat chat-end">
+  <button (click)="this.joinGroup('Turritos')">Join Group</button>
+  <div class="overflow-auto w-full h-full flex flex-col-reverse" *ngIf="messages.length > 0 else emptyChatRoom">
+
+    <div class="chat chat-end" *ngFor="let message of messages">
       <div class="chat-image avatar">
         <div class="w-10 rounded-full">
           <img
             src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         </div>
       </div>
-      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
+      <div class="chat-bubble bg-primary">{{message.description}}</div>
     </div>
-    <div class="chat chat-start">
+
+    <!-- <div class="chat chat-start">
       <div class="chat-image avatar">
         <div class="w-10 rounded-full">
           <img
@@ -21,50 +24,18 @@
       <div class="chat-bubble">It was said that you would, destroy the Sith, not
         join
         them.</div>
-    </div>
-    <div class="chat chat-end">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        </div>
-      </div>
-      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
-    </div>
-    <div class="chat chat-start">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        </div>
-      </div>
-      <div class="chat-bubble">It was said that you would, destroy the Sith, not join them.</div>
-    </div>
-    <div class="chat chat-end">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        </div>
-      </div>
-      <div class="chat-bubble bg-primary">Not leave it in Darkness</div>
-    </div>
-    <div class="chat chat-start">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        </div>
-      </div>
-      <div class="chat-bubble">It was said that you would, destroy the Sith, not join them.</div>
-    </div>
+    </div> -->
+
+
+
   </div>
 
   <!-- my message send -->
-  <div class="flex justify-around items-center w-full my-4">
+  <form [formGroup]="chatForm" (ngSubmit)="sendMessageToGroup(this.chatForm.value.message)"
+    class="flex justify-around items-center w-full my-4">
     <!-- <textarea placeholder="Bio" class="textarea textarea-bordered textarea-xs w-full max-w-xs"></textarea> -->
-    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
-    <button class="btn btn-square my-2 ml-2">
+    <input type="text" placeholder="Type here" class="input input-bordered w-full" formControlName="message" />
+    <button type="submit" class="btn btn-square my-2 ml-2">
       <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
         <g fill="currentColor">
           <path
@@ -74,23 +45,9 @@
         </g>
       </svg>
     </button>
-  </div>
+  </form>
 </section>
-
-<!-- <form [formGroup]="chatForm" (ngSubmit)="sendMessage(this.chatForm.value.user, this.chatForm.value.message)">
-  <input type="text" placeholder="Add your user" formControlName="user">
-  <input type="text" placeholder="Add your message" formControlName="message">
-  <input type="submit" value="Send message">
-</form>
-<aside>
-  <h2>CHAT ROOM</h2>
-  <div *ngIf="messages.length > 0 else emptyChatRoom">
-    <div *ngFor="let message of messages">
-      <p><strong>{{message.user}}: </strong> {{message.description}}</p>
-    </div>
-  </div>
-</aside>
 
 <ng-template #emptyChatRoom>
   <p>No messages</p>
-</ng-template> -->
+</ng-template>
