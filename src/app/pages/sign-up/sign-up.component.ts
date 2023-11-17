@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { SignUpRequest } from 'src/app/requests/SignUpRequest';
 
@@ -22,13 +22,37 @@ export class SignUpComponent {
 
   constructor() {
     this.signUpForm = this.formBuilder.group({
-      name: new FormControl<string>(''),
-      lastName: new FormControl<string>(''),
-      email: new FormControl<string>(''),
-      phoneNumber: new FormControl<string>(''),
-      userName: new FormControl<string>(''),
-      password: new FormControl<string>('')
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9), Validators.pattern('^[0-9]*$')]],
+      userName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]]
     })
+  }
+
+  get name() {
+    return this.signUpForm.get('name')
+  }
+
+  get lastName() {
+    return this.signUpForm.get('lastName')
+  }
+
+  get email() {
+    return this.signUpForm.get('email')
+  }
+
+  get phoneNumber() {
+    return this.signUpForm.get('phoneNumber')
+  }
+
+  get userName() {
+    return this.signUpForm.get('userName')
+  }
+
+  get password() {
+    return this.signUpForm.get('password')
   }
 
   signUp() {

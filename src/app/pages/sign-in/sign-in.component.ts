@@ -47,8 +47,6 @@ export class SignInComponent {
       password: this.signInForm.get('password')?.value
     }
 
-    console.log(signInRequest)
-
     this.authService.signIn(signInRequest).subscribe({
       next: (response: any) => {
         console.log(response);

@@ -9,8 +9,16 @@
         <label class="label">
           <span class="label-text">Name</span>
         </label>
+
         <input type="text" formControlName="name" placeholder="Enter name"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="name?.errors?.['required']" class="text-error text-xs pt-2">The name field is
+            required</span>
+          <span *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="text-error text-xs pt-2">The
+            name field must be between 3 and 20 characters</span>
+        </ng-container>
       </div>
 
       <div class="form-control w-full max-w-xs">
@@ -19,6 +27,15 @@
         </label>
         <input type="text" formControlName="lastName" placeholder="Enter last name"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+          <span *ngIf="lastName?.errors?.['required']" class="text-error text-xs pt-2">The lastName field is
+            required</span>
+          <span *ngIf="lastName?.errors?.['minlength'] || lastName?.errors?.['maxlength']"
+            class="text-error text-xs pt-2">The
+            lastName field must be between 3 and 20 characters</span>
+        </ng-container>
+
       </div>
 
       <div class="form-control w-full max-w-xs">
@@ -27,14 +44,28 @@
         </label>
         <input type="text" formControlName="email" placeholder="example@gmail.com"
           class="input input-bordered w-full max-w-xs" />
+        <ng-container *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <span *ngIf="email?.errors?.['required']" class="text-error text-xs pt-2">The email field is required</span>
+          <span *ngIf="email?.errors?.['email']" class="text-error text-xs pt-2">The email field must be in email
+            format</span>
+        </ng-container>
       </div>
 
       <div class="form-control w-full max-w-xs">
         <label class="label">
           <span class="label-text">Phone</span>
         </label>
+
         <input type="text" formControlName="phoneNumber" placeholder="977584963"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)">
+          <span *ngIf="phoneNumber?.errors?.['required']" class="text-error text-xs pt-2">The phoneNumber field is
+            required</span>
+          <span
+            *ngIf="phoneNumber?.errors?.['minlength'] || phoneNumber?.errors?.['maxlength'] || phoneNumber?.errors?.['pattern']"
+            class="text-error text-xs pt-2">The phoneNumber field must be only 9 numbers</span>
+        </ng-container>
       </div>
 
       <div class="form-control w-full max-w-xs">
@@ -43,6 +74,14 @@
         </label>
         <input type="text" formControlName="userName" placeholder="Enter username"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)">
+          <span *ngIf="userName?.errors?.['required']" class="text-error text-xs pt-2">The userName field is
+            required</span>
+          <span *ngIf="userName?.errors?.['minlength'] || userName?.errors?.['maxlength']"
+            class="text-error text-xs pt-2">The
+            userName field must be between 3 and 20 characters</span>
+        </ng-container>
       </div>
 
       <div class="form-control w-full max-w-xs">
@@ -51,9 +90,16 @@
         </label>
         <input type="password" formControlName="password" placeholder="Enter password"
           class="input input-bordered w-full max-w-xs" />
+        <ng-container *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <span *ngIf="password?.errors?.['required']" class="text-error text-xs pt-2">The password field is
+            required</span>
+          <span *ngIf="password?.errors?.['minlength'] || password?.errors?.['maxlength']"
+            class="text-error text-xs pt-2">The password field must be 8 characters</span>
+        </ng-container>
       </div>
       <div class="card-actions justify-center mt-5">
-        <button type="submit" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign
+        <button [disabled]="this.signUpForm.invalid" type="submit"
+          class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign
           up</button>
       </div>
       <small class="pt-4">Do you already have an account?

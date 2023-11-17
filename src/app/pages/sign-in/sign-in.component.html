@@ -31,10 +31,8 @@
         <ng-container *ngIf="password?.invalid && (password?.dirty || password?.touched)">
           <span *ngIf="password?.errors?.['required']" class="text-error text-xs pt-2">The password field is
             required</span>
-          <span *ngIf="password?.errors?.['minlength']" class="text-error text-xs pt-2">The password field must be 8
-            characters</span>
-          <span *ngIf="password?.errors?.['maxlength']" class="text-error text-xs pt-2">The password field must be 8
-            characters</span>
+          <span *ngIf="password?.errors?.['minlength'] || password?.errors?.['maxlength']"
+            class="text-error text-xs pt-2">The password field must be 8 characters</span>
         </ng-container>
       </div>
       <div class="card-actions justify-center mt-5">
