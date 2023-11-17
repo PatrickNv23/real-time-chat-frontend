@@ -1,5 +1,4 @@
 import { Injectable, inject } from '@angular/core';
-import { User } from '../entities/User';
 import { API_BASE_URL } from '../constants/constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

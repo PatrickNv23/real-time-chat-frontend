@@ -8,19 +8,38 @@
         <label class="label">
           <span class="label-text">Email</span>
         </label>
+
         <input formControlName="email" type="text" placeholder="example@gmail.com"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <span *ngIf="email?.errors?.['required']" class="text-error text-xs pt-2">The email field is required</span>
+          <span *ngIf="email?.errors?.['email']" class="text-error text-xs pt-2">The email field must be in email
+            format</span>
+        </ng-container>
       </div>
 
       <div class="form-control w-full max-w-xs">
+
         <label class="label">
           <span class="label-text">Password</span>
         </label>
+
         <input formControlName="password" type="password" placeholder="Enter password"
           class="input input-bordered w-full max-w-xs" />
+
+        <ng-container *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+          <span *ngIf="password?.errors?.['required']" class="text-error text-xs pt-2">The password field is
+            required</span>
+          <span *ngIf="password?.errors?.['minlength']" class="text-error text-xs pt-2">The password field must be 8
+            characters</span>
+          <span *ngIf="password?.errors?.['maxlength']" class="text-error text-xs pt-2">The password field must be 8
+            characters</span>
+        </ng-container>
       </div>
       <div class="card-actions justify-center mt-5">
-        <button type="submit" class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign
+        <button [disabled]="this.signInForm.invalid" type="submit"
+          class="btn btn-outline btn-primary sm:btn-sm md:btn-md lg:btn-md btn-wide">Sign
           in</button>
         <button class="btn btn-outline btn-secondary sm:btn-sm md:btn-md lg:btn-md btn-wide">
           <svg xmlns="http://www.w3.org/2000/svg" width="19.55" height="20" viewBox="0 0 256 262">
