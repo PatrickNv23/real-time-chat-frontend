@@ -2,32 +2,28 @@
 <section class="flex flex-col items-center w-full h-screen">
   <!-- all messages -->
   <button (click)="this.joinGroup('Turritos')">Join Group</button>
-  <div class="overflow-auto w-full h-full flex flex-col-reverse" *ngIf="messages.length > 0 else emptyChatRoom">
-
-    <div class="chat chat-end" *ngFor="let message of messages">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+  <div class="overflow-auto w-full h-full flex flex-col justify-end" *ngIf="messages.length > 0 else emptyChatRoom">
+    <ng-container *ngFor="let message of messages">
+      <div class="chat chat-end">
+        <div class="chat-image avatar">
+          <div class="w-10 rounded-full">
+            <img
+              src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          </div>
         </div>
+        <div class="chat-bubble bg-primary">{{message.description}}</div>
       </div>
-      <div class="chat-bubble bg-primary">{{message.description}}</div>
-    </div>
 
-    <!-- <div class="chat chat-start">
-      <div class="chat-image avatar">
-        <div class="w-10 rounded-full">
-          <img
-            src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+      <!-- <div *ngIf="message.user !== this.id" class="chat chat-start">
+        <div class="chat-image avatar">
+          <div class="w-10 rounded-full">
+            <img
+              src="https://images.pexels.com/photos/3454298/pexels-photo-3454298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          </div>
         </div>
-      </div>
-      <div class="chat-bubble">It was said that you would, destroy the Sith, not
-        join
-        them.</div>
-    </div> -->
-
-
-
+        <div class="chat-bubble">{{message.description}}</div>
+      </div> -->
+    </ng-container>
   </div>
 
   <!-- my message send -->
